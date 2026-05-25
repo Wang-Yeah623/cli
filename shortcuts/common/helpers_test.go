@@ -50,6 +50,7 @@ func TestMultipartWriter_CreateFormFile_EscapesFilename(t *testing.T) {
 
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
 			var buf bytes.Buffer
 			mw := NewMultipartWriter(&buf)
 			w, err := mw.CreateFormFile("file", tc.filename)
